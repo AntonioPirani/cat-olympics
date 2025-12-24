@@ -144,7 +144,6 @@ shape = SubResource("RectangleShape2D_sugp2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 sprite_frames = SubResource("SpriteFrames_o6xl0")
 animation = &"run"
-autoplay = "run"
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 offset = Vector2(0, 50)
