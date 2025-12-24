@@ -1,17 +1,29 @@
 extends CharacterBody2D
 
-const SPEED := 300.0        # left/right speed
-const RUN_SPEED := 200.0    # forward (down) speed
+const SPEED := 10.0
+const RUN_SPEED := 200.0
+
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
 	# Always move downward
 	velocity.y = RUN_SPEED
 
-	# Left / Right movement
+	# Horizontal input
 	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction != 0:
-		velocity.x = direction * SPEED
+	velocity.x = direction * SPEED
+
+	# Animation logic
+	if direction < 0:
+		play_anim("turn_left")
+	elif direction > 0:
+		play_anim("turn_right")
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		play_anim("run")
 
 	move_and_slide()
+
+
+func play_anim(name: String) -> void:
+	if anim.animation != name:
+		anim.play(name)
