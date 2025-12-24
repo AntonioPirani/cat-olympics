@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=4 uid="uid://cty67rdodoeel"]
+[gd_scene load_steps=19 format=4 uid="uid://cty67rdodoeel"]
 
 [ext_resource type="Texture2D" uid="uid://cai3jj4j4ncpn" path="res://assets/tilesets/tilemap.png" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://d4m4t4hnf8edm" path="res://assets/sprites/pipo-nekonin024.png" id="2_0wfyh"]
 [ext_resource type="Script" uid="uid://e5mjml1puq2a" path="res://scripts/character_body_2d.gd" id="2_sugp2"]
+[ext_resource type="Script" uid="uid://fdk1xdh257k5" path="res://scripts/finish_line.gd" id="4_jyhfs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0wfyh"]
 texture = ExtResource("1_o5qli")
@@ -123,6 +124,9 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbgi4"]
+size = Vector2(106, 32)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMap" type="TileMapLayer" parent="."]
@@ -143,6 +147,17 @@ animation = &"run"
 autoplay = "run"
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+offset = Vector2(0, 50)
 zoom = Vector2(4, 4)
 limit_left = 0
 limit_right = 250
+
+[node name="FinishLine" type="Area2D" parent="."]
+position = Vector2(88, 1432)
+script = ExtResource("4_jyhfs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishLine"]
+position = Vector2(16, 8)
+shape = SubResource("RectangleShape2D_tbgi4")
+
+[connection signal="body_entered" from="FinishLine" to="CharacterBody2D" method="_on_finish_line_body_entered"]
