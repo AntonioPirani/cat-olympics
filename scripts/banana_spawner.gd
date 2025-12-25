@@ -27,7 +27,7 @@ func spawn_gaussian_bananas() -> void:
 
 	for i in banana_count:
 		var banana: Area2D = banana_scene.instantiate()
-		
+		#https://docs.godotengine.org/en/stable/classes/class_randomnumbergenerator.html
 		var y = clamp(randfn(y_mean, y_dev), Y_MIN, Y_MAX)
 		var x = randf_range(X_MIN, X_MAX)
 		banana.position = Vector2(x, y)
