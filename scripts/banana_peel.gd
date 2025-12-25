@@ -1,3 +1,3 @@
 extends Area2D
 
-# No code needed; spawner connects the signal
+#updated so code runs on Spawner script
