@@ -46,3 +46,13 @@ The game emphasizes procedural content generation (PCG) and simple, responsive c
 
 ---
 
+## Resources
+
+https://pixabay.com/sound-effects/cartoon-yoink-1-183915/
+
+https://pixabay.com/sound-effects/you-win-sequence-1-183948/
+
+https://pixabay.com/sound-effects/running-on-concrete-268478/
+
+https://pipoya.itch.io/pipoya-free-rpg-character-sprites-nekonin
+
